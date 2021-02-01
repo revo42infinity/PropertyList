@@ -9,21 +9,35 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var typeTextField: UITextField!
+    
+    @IBOutlet weak var locationTextField: UITextField!
+    
+    @IBOutlet weak var priceTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //4 keyboard kapama bir yere tiklaninca. once bir yere tiklanmayi algilama
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+        
+        //6
+        view.addGestureRecognizer(gestureRecognizer)
+        
+    }
+    //5
+    @objc func closeKeyboard() {
+        //7 klavyeyi kapama
+        view.endEditing(true)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveButton(_ sender: Any) {
     }
-    */
+    
+   
 
 }

@@ -14,6 +14,7 @@
 		EB77BAF825C86AB100E3B6D7 /* PropertyList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB77BAF625C86AB100E3B6D7 /* PropertyList.xcdatamodeld */; };
 		EB77BAFA25C86AB400E3B6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB77BAF925C86AB400E3B6D7 /* Assets.xcassets */; };
 		EB77BAFD25C86AB400E3B6D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB77BAFB25C86AB400E3B6D7 /* LaunchScreen.storyboard */; };
+		EB77BB0625C874EF00E3B6D7 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB77BB0525C874EF00E3B6D7 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EB77BAF925C86AB400E3B6D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB77BAFC25C86AB400E3B6D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB77BAFE25C86AB400E3B6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB77BB0525C874EF00E3B6D7 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				EB77BAFB25C86AB400E3B6D7 /* LaunchScreen.storyboard */,
 				EB77BAFE25C86AB400E3B6D7 /* Info.plist */,
 				EB77BAF625C86AB100E3B6D7 /* PropertyList.xcdatamodeld */,
+				EB77BB0525C874EF00E3B6D7 /* DetailsViewController.swift */,
 			);
 			path = PropertyList;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				EB77BAEE25C86AB100E3B6D7 /* AppDelegate.swift in Sources */,
 				EB77BAF825C86AB100E3B6D7 /* PropertyList.xcdatamodeld in Sources */,
 				EB77BAF025C86AB100E3B6D7 /* SceneDelegate.swift in Sources */,
+				EB77BB0625C874EF00E3B6D7 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
