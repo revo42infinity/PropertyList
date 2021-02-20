@@ -112,6 +112,7 @@
                         <outlet property="imageView" destination="Ncu-te-mvB" id="VLz-hh-dEV"/>
                         <outlet property="locationTextField" destination="bAi-Mb-gwe" id="RdM-aN-cr4"/>
                         <outlet property="priceTextField" destination="w86-Ua-hu2" id="O7L-9X-Os8"/>
+                        <outlet property="savedButton" destination="bcC-hL-gr5" id="RpJ-i3-99p"/>
                         <outlet property="typeTextField" destination="pYi-KO-tau" id="Qis-ot-uE8"/>
                     </connections>
                 </viewController>

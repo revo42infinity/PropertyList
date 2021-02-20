@@ -9,7 +9,9 @@ import UIKit
 import CoreData
 
 class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
+    @IBOutlet weak var savedButton: UIButton!
+    
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var typeTextField: UITextField!
@@ -32,6 +34,10 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         //28
         if selectedType != "" { //eger type secildiyse yani bos degil ise
             //core data secilen urun bilgilerini goster.ordan cekip goster
+            
+            //48
+           // savedButton.isEnabled = false //ustune tiklanamaz artik
+            savedButton.isHidden = true //boyle yapinca hic gozukmeyecek. ama artiya tiklaninca olsun diye asagida 49.kodda artiya tiklandiginda ishidden false olacak
             
             //33 sadece tiklanan urunun uuidsini diger tarafta logda aliyoruz. string olarak tiklananlarin uuid sini aliyoruz boylece
             if let uuidstring = selectedId?.uuidString{
@@ -85,7 +91,13 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             
         } else { //demekki yukaridaki artiya tiklayrak geldi secerek gelmedi urunu
-            //bos gosterelim
+            
+           //49
+            savedButton.isHidden = false
+            savedButton.isEnabled = false
+            //ancak gorsel sectiginde tiklandiracagiz o da 50.kodda
+            
+            //39 devami bos gosterelim
             typeTextField.text = ""
             locationTextField.text = ""
             priceTextField.text = ""
@@ -121,6 +133,11 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
     //11 gorseli sectin sonra nolacak
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[.originalImage] as? UIImage //editing e izin ver ya da orjinali ver vs...any verdigi icin as ile cast ettim. opsiyonel cast
+        
+        //50
+        savedButton.isEnabled = true
+        
+        //11 devami
         self.dismiss(animated: true, completion: nil) //picker controller kapa, imageview a geri don
         //12 infolist ten aciklama ekle image choose description icin
     }

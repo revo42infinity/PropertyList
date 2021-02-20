@@ -145,5 +145,61 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //30
         performSegue(withIdentifier: "toDetailsVC", sender: nil)
     }
+    
+    //40 silme islemlerine basliyoruz
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete { //kontrole diyoruz. sonra ilgili veriyi veri tabanindan cekicez sonra silicez asagida
+            
+            //41 ilgili veriyi cekmemiz lazim
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Properties")
+            let uuidString = idDizi[indexPath.row].uuidString
+            
+            fetchRequest.predicate = NSPredicate(format: "id = %@", uuidString)
+            fetchRequest.returnsObjectsAsFaults = false
+            //yukarisi diger trafla ayni yaptik kodlari
+            
+            //42
+            do {
+                let results = try context.fetch(fetchRequest)
+                if results.count > 0 { //sifirdan buyukse
+                    for result in results as! [NSManagedObject]{ //tekil sonuca ulasiyoruz
+                        if let id = result.value(forKey: "id") as? UUID { //bu sonuc hangi uuid den cektiyse onun sonucu olmasi lazim saglamasini yapalim.bunu alabilirsek asagiyi kontrol edelim
+                            if id == idDizi[indexPath.row] { //eger cektigim veirnin id si gercekten secilen id ye esitse yuzde yuz emin olabiliriz.bunu yapmaya gerek yok ama genede yazalim.
+                                
+                                //43
+                                context.delete(result) //artik siliniyor
+                                //44 bunlardanda silmis olalim
+                                typeDizi.remove(at: indexPath.row)
+                                idDizi.remove(at: indexPath.row)
+                                //45 guncelle tableview
+                                self.tableView.reloadData()
+                                //46
+                                do{
+                                    try context.save()
+                                } catch {
+                                    
+                                }
+                                //47 donguyu durdur diyoruz. optional. ektsra onlem
+                                break
+                                
+                            }
+                        }
+                    }
+                }
+                
+            } catch {
+                print("error")
+            }
+            
+            
+            
+            
+            
+        }
+    }
 }
 
